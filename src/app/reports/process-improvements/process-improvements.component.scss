@@ -1,0 +1,44 @@
+.table th, 
+.table td {
+   padding:0;
+    border:1px solid black;
+    text-align: center;
+    font-size: small;
+       
+    }
+.table th {
+  background-color: #009CA6;
+  padding:-10px;
+  
+  color:black;
+  font-size: small;
+  font-style: normal;
+  
+}
+.table td{
+  font-family: Arial, Helvetica, sans-serif;
+  color:black;
+}
+
+.card .card-body{
+  padding:0px 15px 0px 15px;
+}
+.card-header {
+  padding:0px 15px -15px 15px;
+}
+.hr{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.footerd {
+  background-color: #009CA6;
+  height: 15px;
+}
+
+
+
+
+
+
+ 
