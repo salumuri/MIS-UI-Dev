@@ -1,0 +1,28 @@
+.table th, 
+.table td {
+   padding:0px;
+    border:1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    font-size: small;
+    font-family: Arial;
+       
+    } 
+
+    .inhtable {
+        background-color:black;
+        padding:-10px;
+        color:white;
+        font-size: small;
+        font-style: normal;
+        text-wrap: nowrap;
+        position: sticky;
+        top:0;
+        z-index: 10;
+        
+      }
+      .h2 {
+        padding:0px 15px -15px 15px;
+        text-align: center;
+      }
+      

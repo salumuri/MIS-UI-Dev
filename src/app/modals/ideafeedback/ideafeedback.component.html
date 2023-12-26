@@ -1,0 +1,87 @@
+<div class="modal-header">
+    <!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
+    <h4 class="modal-title custhead">Feedback Details</h4>
+    <button type="button" class="close" data-dismiss="modal" (click)="closeModal('dismiss')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row contentbody">
+        <div class="col-md-4">
+            <h6 class="custhead">Program Meets Requirements <span class="mandatory" style="color: red">*</span></h6>
+              <ul class="list-unstyled mb-0 custhead">
+                <li class="d-inline-block mr-2" *ngFor="let x of recordType; let ind=index;">
+                  <div class="radio">
+                    <input type="radio" name="rtype" value="{{x.rtype}}" id="radio1_{{ind}}"
+                       class="form-control" [(ngModel)]="pardata.meets">
+                    <label for="radio1_{{ind}}">{{x.rtype}}</label>
+                  </div>
+                </li>
+              </ul>
+       </div>
+      <div class="col-md-4">
+        <h6 class="custhead">Developed By</h6>
+            
+              <input type="text" id="developedby" class="form-control custhead"  name="developedby" [(ngModel)]="pardata.developedBy" readonly>
+        
+      </div>
+      <div class="col-md-4">
+        <h6 class="custhead">Tested By </h6>
+            
+              <input type="text" id="testtedby" class="form-control custhead"  name="testtedby" [(ngModel)]="pardata.testedby" readonly>
+        
+      </div>
+    </div>
+    <br>
+   
+    <div class="row contentbody">  
+        <div class="col-md-7">
+            <h6 class="custhead">Feedback Rating<span class="mandatory" style="color: red">*</span></h6>
+              <ul class="list-unstyled mb-0 custhead">
+                <li class="d-inline-block mr-2" *ngFor="let x of ratingType; let ind=index;">
+                  <div class="radio">
+                    <input type="radio" name="rattype" value="{{x.rtype}}" id="radio2_{{ind}}"
+                       class="form-control" [(ngModel)]="pardata.rating">
+                    <label for="radio2_{{ind}}">{{x.rtype}}</label>
+                  </div>
+                </li>
+              </ul>
+       </div>
+       <div class="col-md-2">
+        <h6 class="custhead">Proposed Hrs<span class="mandatory" style="color: red">*</span></h6>
+           <input type="text" id="savedhrs" class="form-control custhead"  name="savedhrs" [(ngModel)]="pardata.proposed_hrs" readonly>
+       </div> 
+       <div class="col-md-3">
+        <h6 class="custhead">Actual Time(Hr's/Month)<span class="mandatory" style="color: red">*</span></h6>
+           <input type="text" id="savedhrs" class="form-control custhead"  name="savedhrs" [(ngModel)]="pardata.savTime">
+       </div> 
+      
+    </div>  
+    <br>   
+    <div class="row contentbody">
+        <div class="col-md-4 col-4">
+            <h6 class="custhead">Camp ID<span class="mandatory" style="color: red">*</span></h6>
+               <input type="text" id="developedby" class="form-control custhead"  name="campid" [(ngModel)]="pardata.campid">
+           </div>
+        <div class="col-md-8 col-8">
+            <h6 class="custhead">Feedback<span class="mandatory" style="color: red">*</span></h6> 
+            <textarea class="form-control custhead" id="feedback" name="feedback" [(ngModel)]="pardata.remarks" required></textarea> 
+        </div>  
+   </div>
+   <div class="row contentbody" *ngIf="pardata.mail_status=='1'">
+    <div  class="col-md-12 col-12" >
+        <h6 class="custhead">Justification<span class="mandatory" style="color: red">*</span></h6>
+        <textarea class="form-control custhead" id="justification" name="justification" [(ngModel)]="pardata.justification" required></textarea>
+       </div>
+    
+</div>
+</div>
+<!-- <pre>{{pardata | json}}</pre> -->
+<hr>
+
+<div class="modal-footer">
+    <!-- <button type="button" style='font-size: 10px !important;' class="btn btn-sm btn-warning" data-dismiss="modal" (click)="closeModal('nofeedback')">No Feedback</button> -->
+    <button type="button" style='font-size: 10px !important;' class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="closeModal('close')">Close</button>
+    <button type="button"  style='font-size: 10px !important;' class="btn btn-sm btn-primary" (click)="closeModal('save')">Update</button>
+
+</div>

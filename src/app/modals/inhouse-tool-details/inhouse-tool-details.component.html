@@ -1,0 +1,71 @@
+  <!-- The Modal -->
+  
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color:cadetblue;margin-top: 0px;"><b>INHOUSE TOOL DETAILS</b></h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="row" *ngIf="toolDetails.length!=0">
+                <div class="col-md-12">
+                             <button type="submit" class="btn btn-sm btn-ligth" style="width: 70px; float:right" (click)="exportexcel()">
+                                    <i class="fa fa-file-excel-o"
+                                      style="font-size:20px;color:rgb(75, 165, 75);margin-right: 30px;"></i>
+                                  </button>
+                                <div class="table-responsive" style="height: 350px;overflow-y: auto;">
+                                   
+                                    <table class="table table-sm table-bordered" id="excel-table">
+                                        <thead class="card1" class="inhtable" >
+                                            <tr>
+                                                <th>Version</th>
+                                                <th>Request No</th>
+                                                <th>Pain Area</th>
+                                                <th>Solution</th>
+                                                <th>Requested By</th>
+                                                <th>Requested Date</th>
+                                                <th>Delivery Date</th>
+                                                <th>Developed By</th>
+                                             
+                                            
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let x of toolDetails">
+                                                <td>{{x.Version}}</td>
+                                                <td>{{x.ReqNo}}</td>
+                                                <td>{{x.painarea}}</td>
+                                                <td>{{x.Description}}</td>
+                                                <td>{{x.RequestedBy}}</td>
+                                                <td>{{x.RequestedDate | date:'yyyy-MM-dd'}}</td>
+                                                <td>{{x.DelDate | date:'yyyy-MM-dd'}}</td>
+                                                <td>{{x.Developedby}}</td>
+                                             </tr>
+                                        </tbody>
+                                            <tfoot> 
+                                                <tr> 
+                                                   <td colspan="10" style="background-color: black;height: 18px;"></td> 
+                                                   
+                                                </tr> 
+                                             </tfoot> 
+        
+                                       
+                                    </table>
+                                </div>
+                  
+                 </div>
+            </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
+        </div>
+        
+      </div>
+ 
+  </div>
