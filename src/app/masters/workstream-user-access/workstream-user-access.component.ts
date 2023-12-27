@@ -210,8 +210,8 @@ export class WorkstreamUserAccessComponent implements OnInit {
     // this.UsersGrid();
     this.waSearchFm = this.fb.group({
       wsname: ['', Validators.required],
-      service: ['', Validators.required],
-      state: ['', Validators.required],
+      service: [''],
+      state: [''],
       assocName : [[], Validators.required]
     }
     );
@@ -340,22 +340,29 @@ export class WorkstreamUserAccessComponent implements OnInit {
   }
 
 
-  frmSubmit() {
+  frmSubmit(par) {
+    var status = par;
     console.table(this.waSearchFm.value);
     var frmObj = this.waSearchFm.value;
     var wid = frmObj.wsname; var sid = frmObj.service; var state = frmObj.state
     console.log(wid);
-    console.log(sid.length);
+    console.log(sid);
+    console.log(state)
     console.log(frmObj.assocName);
-    //return
+    console.log(status)
     var assoctId = this.associate;
     console.log(assoctId)
     console.log(state)
-   // return
-    if (wid != "" && sid != '' && state != '') {
+  //  return
+   if(sid == '')
+    sid = 0;
+  if(state == '')
+   state=0;
+    if (wid != "") {
       var userId = localStorage.getItem('LoginId');
       this.spinner.show();
-      this.Apiservice.get('Masters/InsertUsers?workstream=' + wid + '&service=' + sid + '&state=' + state + '&id=' + frmObj.assocName + '&loginId=' + userId).subscribe((data: any) => {
+      this.Apiservice.get('Masters/InsertUsers?workstream=' + wid + '&service=' + sid + '&state=' + state + '&id=' + frmObj.assocName +
+       '&status=' + status + '&loginId=' + userId).subscribe((data: any) => {
         console.log("Bulk Upload --->", data);
         this.globalConst.checkOriginAccess(data);
         this.spinner.hide();
